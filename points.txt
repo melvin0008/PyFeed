@@ -1,0 +1,99 @@
+http://api.feedzilla.com/v1/categories.json
+
+http://api.feedzilla.com/v1/subcategories.json
+
+
+For subcategories from a particular category
+/v1/categories/{category_id}/subcategories.format
+http://api.feedzilla.com/v1/categories/13/subcategories.json
+
+
+/v1/categories/{category_id}/articles.format
+
+
+/v1/categories/{category_id}/subcategories/{subcategory_id}/articles.format
+count - Optional. Specifies the number of articles to retrieve. May not be greater than 100. (Note the the number of articles returned may be smaller than the requested count). Default is 20.
+since - Optional. Returns articles that was published since the given date. Date should be formatted as YYYY-MM-DD
+order - Optional. The sort order of the list to be returned. Can be one of the following:
+relevance - The list will be ordered by article relevancy (most relevant is first). This is the default value.
+date - The list will be ordered by article publication date (most recent is first).
+client_source - Optional. A string representing the client that uses this request.
+title_only - Optional. A value (1 - true, 0 - false) indicating whether to fetch article title only (no summary or content). Default is 0.
+
+
+/v1/categories/{category_id}/articles/search.format
+Description: Returns most recent articles for the category given by category_id and match a specified query.
+Formats: json, rss, atom
+HTTP Method(s): GET
+Parameters:
+q - Required . The text to search for in articles.
+count - Optional. Specifies the number of articles to retrieve. May not be greater than 100. (Note the the number of articles returned may be smaller than the requested count). Default is 20.
+since - Optional. Returns articles that was published since the given date. Date should be formatted as YYYY-MM-DD
+order - Optional. The sort order of the list to be returned. Can be one of the following:
+relevance - The list will be ordered by article relevancy (most relevant is first). This is the default value.
+date - The list will be ordered by article publication date (most recent is first).
+client_source - Optional. A string representing the client that uses this request.
+title_only - Optional. A value (1 - true, 0 - false) indicating whether to fetch article title only (no summary or content). Default is 0.
+
+
+
+/v1/categories/{category_id}/subcategories/{subcategory_id}/articles/search.format
+Description: Returns most recent articles for the category specified by category_id and subcategory specified by subcategory_id and match a specified query.
+Formats: json, rss, atom
+HTTP Method(s): GET
+Parameters:
+q - Required . The text to search for in articles.
+count - Optional. Specifies the number of articles to retrieve. May not be greater than 100. (Note the the number of articles returned may be smaller than the requested count). Default is 20.
+since - Optional. Returns articles that was published since the given date. Date should be formatted as YYYY-MM-DD
+order - Optional. The sort order of the list to be returned. Can be one of the following:
+relevance - The list will be ordered by article relevancy (most relevant is first). This is the default value.
+date - The list will be ordered by article publication date (most recent is first).
+client_source - Optional. A string representing the client that uses this request.
+title_only - Optional. A value (1 - true, 0 - false) indicating whether to fetch article title only (no summary or content). Default is 0.
+Examples:
+JSON format: curl "http://api.feedzilla.com/v1/categories/26/subcategories/1303/articles/search.json?q=Michael"
+
+
+
+/v1/articles/search.format
+Description: Returns the most recent articles that match a specified query.
+Formats: json, rss, atom
+HTTP Method(s): GET
+Parameters:culture_code - Optional. Restricts the results to the given culture. Default is en_us.
+q - Required . The text to search for in articles.
+count - Optional. Specifies the number of articles to retrieve. May not be greater than 100. (Note the the number of articles returned may be smaller than the requested count). Default is 20.
+since - Optional. Returns articles that was published since the given date. Date should be formatted as YYYY-MM-DD
+order - Optional. The sort order of the list to be returned. Can be one of the following:
+relevance - The list will be ordered by article relevancy (most relevant is first). This is the default value.
+date - The list will be ordered by article publication date (most recent is first).
+client_source - Optional. A string representing the client that uses this request.
+title_only - Optional. A value (1 - true, 0 - false) indicating whether to fetch article title only (no summary or content). Default is 0.
+
+
+
+pyfeed{
+
+	functions:{
+	getArticles(category='',[subcategory="",count="",since="",order="",title_only=""])
+	getCategories();
+	getSubCategoryFor(category="")
+	searchForArticle(query="",[category="",subcategory="",count="",since="",order=""]);
+	}
+}
+
+articles{
+	article{
+	author
+	publishdate
+	source:
+	source_url:
+	summary:
+	title:
+	url:
+	}
+	description:
+	list_title:
+}
+
+
+
