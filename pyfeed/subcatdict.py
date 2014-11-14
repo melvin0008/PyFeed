@@ -6,8 +6,10 @@ d={}
 
 for x in subcat:
 	 b={}
-	 b['url_category_name']=x['url_subcategory_name']
-	 d[(cat[x['category_id']],x['url_subcategory_name'])]=b
+	 b['category_id']=x['category_id']
+	 b['subcategory_id']=x['subcategory_id']
+	 no=x['category_id']
+	 d[(cat[no]['url_category_name'],x['url_subcategory_name'])]=b
 
 print d
 	
