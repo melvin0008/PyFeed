@@ -5,4 +5,3 @@ def getlistitem(listitems, item):
         return listitems[item]
     else:
         return None
-# def checkforand()

@@ -21,6 +21,16 @@ class CategorySubCat(object):
 
 class Article(object):
 	"""docstring for Article"""
+	def __init__(self,list_title,description,articlelist):
+		self.list_title = list_title
+		self.description = description
+		self.articlelist = articlelist
+		
+
+
+
+class ArticleItem(object):
+	"""docstring for ArticleItem"""
 	def __init__(self, publish_date,source,source_url,summary,title,url):
 		self.publish_date=publish_date
 		self.source=source
