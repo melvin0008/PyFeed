@@ -36,7 +36,7 @@ feed.getArticles({{name of category}},{{name of SubCategory}}>,count={{count}},s
 **Parameters:**
 
 | Name | Type | Description | Required or Not | Example     |
-| ---- | :---- | :----------- | :----------- ---|:------------|
+| ------ | :----: | :-----------: | :---------------: | :------------: |
 | `category` | string | Name of the Category | Required| "art" |
 | `subcategory` | string | Name of the SubCategory | Optional| "photography"|
 | `count` | integer | Count of articles | Optional| 10 |
@@ -51,13 +51,13 @@ Examples
  feed.getArticles("sports",order="popular")   
  feed.getArticles("art","photography",count=5,since="2012-05-05")   
  ```
-## Returned Value is an Article which contains   
+### Returned Value is an Article which contains   
 
  articlelist : A List of articleItem objects   
  list_title: A String with the title of the list   
  description : A String with the description    
 --------
-## An Article List contains ArticleItem objects which contains
+#### An Article List contains ArticleItem objects which contains
  publish_date : A string with the publish date   
  source : A string with the source of the article feed   
  source_url : A string with the source url of the article   
@@ -74,7 +74,7 @@ feed=FeedzillaApi()
  description=article.description   
  list_title=article.list_title   
  ```
-### To get info of the any article
+#### To get info of the any article
  ```python
  articleurl = articlelist[0].url   
  articlesource = articlelist[0].source   
@@ -83,7 +83,7 @@ feed=FeedzillaApi()
  articlesummary = articlelist[0].summary   
  articlepublishdate=articlelist[0].publish_date   
  ```
- 
+
 Contribute
 ========
 
