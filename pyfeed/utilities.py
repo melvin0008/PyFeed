@@ -1,4 +1,5 @@
-#! /venv/bin/env python
+#!/venv/bin/env python
+#Copyright Melvin me@melvinphilips.com
 def getlistitem(listitems, item):
     ''' returns the desired item of a list if available otherwise return None'''
     if item in listitems:

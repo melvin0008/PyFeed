@@ -2,3 +2,4 @@ venv
 *.pyc
 weather.py
 weatherClass.py
+.pypirc
