@@ -22,17 +22,18 @@ Usage
 
 
 ## To Get an Article
-###feed=FeedzillaApi()
-###feed.getArticles(<name of category>,<name of SubCategory>,count=<count>,since=<since>,order=<popular | none(default) >,title_only=<1|0>)
+feed=FeedzillaApi()
+feed.getArticles({{name of category}},{{name of SubCategory}}>,count={{count}},since={{since}},order={{popular | none(default) }},title_only={{1|0}})
+
 **Parameters:**
 
-| Name | Type | Description | Required or Not|Example |
-| ---- | ---- | ----------- | ----------- |
+| Name | Type | Description | Required or Not|Example     |
+| ---- | ---- | ----------- | ----------- ---|------------|
 | `category` | string | Name of the Category | Required| "art" |
 | `subcategory` | string | Name of the SubCategory | Optional| "photography"|
 | `count` | integer | Count of articles | Optional| 10 |
 | `order` | string | The sort order of the list to be returned. | Optional| "popular" or "none"  |
-| `title_only` | integer | returns only title if set to 1 | Optional| 1
+| `title_only` | integer | returns only title if set to 1 | Optional| 1|
 
 
 Examples
