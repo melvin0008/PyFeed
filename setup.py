@@ -1,13 +1,17 @@
-from distutils.core import setup
+from setuptools import setup
 setup(
     name = 'feedzilla-api',
-    packages = ['feedzilla-api'], 
-    version = '0.1',
+    packages = ['pyfeed'], 
+    version = '0.2',
     description = 'Unofficial Feedzilla Python API Wrapper',
     author = 'Melvin Philips',
     author_email = 'me@melvinphilips.com',
     url = 'https://github.com/melvin0008/PyFeed',
-    download_url = 'https://github.com/melvin0008/PyFeed/archive/master.zip',
+    download_url = 'https://github.com/melvin0008/PyFeed/tarball/0.2',
     keywords = ['feedzilla-api', 'api', 'feedzilla','feedzilla-wrapper'], 
     classifiers = [],  
+    install_requires=[
+          'simplejson',
+      ],
+      zip_safe=False
     )
