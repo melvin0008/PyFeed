@@ -15,24 +15,28 @@ pip install feedzilla-api
 Usage
 ==========
 ## To get all Categories
-
-### feed=FeedzillaApi()
-### feed.knowallcategories()
+ ```python
+ feed=FeedzillaApi()
+ feed.knowallcategories()
+ ```
 
 ## To Get a SubCategory of a known Category
-### feed=FeedzillaApi()
-### feed.knowallcategories(<name of the Category>)
-### example : feed.knowallcategories("sports")
-
+ ```python
+ feed=FeedzillaApi()
+ feed.knowallcategories(<name of the Category>)
+ example : feed.knowallcategories("sports")
+ ```
 
 ## To Get an Article
+```python
 feed=FeedzillaApi()
 feed.getArticles({{name of category}},{{name of SubCategory}}>,count={{count}},since={{since}},order={{popular | none(default) }},title_only={{1|0}})
+```
 
 **Parameters:**
 
 | Name | Type | Description | Required or Not | Example     |
-| ---- | ---- | ----------- | ----------- ---|------------|
+| ---- | :---- | :----------- | :----------- ---|:------------|
 | `category` | string | Name of the Category | Required| "art" |
 | `subcategory` | string | Name of the SubCategory | Optional| "photography"|
 | `count` | integer | Count of articles | Optional| 10 |
@@ -42,39 +46,44 @@ feed.getArticles({{name of category}},{{name of SubCategory}}>,count={{count}},s
 
 Examples
 ==========
- feed=FeedzillaApi()
- feed.getArticles("sports",order="popular")
- feed.getArticles("art","photography",count=5,since="2012-05-05")
+```python
+ feed=FeedzillaApi()   
+ feed.getArticles("sports",order="popular")   
+ feed.getArticles("art","photography",count=5,since="2012-05-05")   
+ ```
+## Returned Value is an Article which contains   
 
-## Returned Value is an Article which contains
- articlelist : A List of articleItem objects
- list_title: A String with the title of the list
- description : A String with the description 
+ articlelist : A List of articleItem objects   
+ list_title: A String with the title of the list   
+ description : A String with the description    
 --------
 ## An Article List contains ArticleItem objects which contains
- publish_date : A string with the publish date
- source : A string with the source of the article feed
- source_url : A string with the source url of the article
- summary : A string with the summary of the article
- title : A string with the title of the article
- url : A string with the url of the article
+ publish_date : A string with the publish date   
+ source : A string with the source of the article feed   
+ source_url : A string with the source url of the article   
+ summary : A string with the summary of the article   
+ title : A string with the title of the article   
+ url : A string with the url of the article   
 
 Parsing Examples
 ========
-feed=FeedzillaApi()
- article=feed.getArticles("sports",order="popular")
- articlelist=article.articlelist
- description=article.description
- list_title=article.list_title
-
+```python
+feed=FeedzillaApi()   
+ article=feed.getArticles("sports",order="popular")  
+ articlelist=article.articlelist   
+ description=article.description   
+ list_title=article.list_title   
+ ```
 ### To get info of the any article
- articleurl = articlelist[0].url
- articlesource = articlelist[0].source
- articletitle = articlelist[0].title
- articlesourceurl = articlelist[0].source_url
- articlesummary = articlelist[0].summary
- articlepublishdate=articlelist[0].publish_date
-
+ ```python
+ articleurl = articlelist[0].url   
+ articlesource = articlelist[0].source   
+ articletitle = articlelist[0].title   
+ articlesourceurl = articlelist[0].source_url   
+ articlesummary = articlelist[0].summary   
+ articlepublishdate=articlelist[0].publish_date   
+ ```
+ 
 Contribute
 ========
 
