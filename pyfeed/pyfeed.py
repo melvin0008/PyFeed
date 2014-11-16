@@ -28,6 +28,18 @@ class FeedzillaApi(object):
 			querypart=querypart+andvar+key+"="+str(value)
 		return self.buildquery(x,i,querypart)
 
+	def knowallcategories(self):
+		c=CategorySubCat()
+		return c.getcategoryid()
+
+	def knowsubcategories(self,category=None):
+		c=CategorySubCat()
+		try:
+			ret=c.getcategorysubcategoryids(str.lower(category))
+			return ret
+		except TypeError:
+			return "Mention a Category And Use a String"
+
 	def getArticles(self,category,subcategory=None,count=None,since=None,order=None,title_only=None):
 			query=""
 			if count!=None or since!=None or order!=None or title_only!=None:
@@ -35,18 +47,23 @@ class FeedzillaApi(object):
 								
 			c=CategorySubCat()
 			if subcategory==None:
-				cid=c.getcategoryid(category)
-				if cid!=None:
-					finalFeedzillaApi=self.FeedzillaApicategories+str(cid)+self.FeedzillaApiArticles+query
-					print finalFeedzillaApi
-				else:
+				try:
+					cid=c.getcategoryid(str.lower(category))
+					if cid!=None:
+						finalFeedzillaApi=self.FeedzillaApicategories+str(cid)+self.FeedzillaApiArticles+query
+						print finalFeedzillaApi
+					else:
+						exit(1)
+				except TypeError:
+					print "Incorrect Type Entered"
 					exit(1)
+
 			else:
 				try:
-					cid,subid=c.getcategorysubcategoryids(category,subcategory)
+					cid,subid=c.getcategorysubcategoryids(str.lower(category),str.lower(subcategory))
 					finalFeedzillaApi=self.FeedzillaApicategories+str(cid)+self.FeedzillaApiSubcategory+str(subid)+self.FeedzillaApiArticles+query
 				except (TypeError):
-					print "Incorrect Pair of Category and Subcategory"
+					print "Incorrect Pair of Category and Subcategory Or Incorrect Type Entered"
 					exit(1)
 
 			feeds= self.openurldecodesimplejson(finalFeedzillaApi)

@@ -5,3 +5,4 @@ weatherClass.py
 .pypirc
 feedzilla_api.egg-info
 dist
+doc
