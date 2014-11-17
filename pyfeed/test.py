@@ -2,7 +2,7 @@ from pyfeed import FeedzillaApi
 
 
 feed=FeedzillaApi()
-art1=feed.getArticles("art","photography",count=5,since="2012-05-05")
+art1=feed.getArticles("art","photography",count=5,since="2014-05-05")
 print art1.articlelist[0].url
 
 allarticles=feed.getArticles("art")
