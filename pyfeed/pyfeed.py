@@ -16,6 +16,7 @@ class FeedzillaApi(object):
 	FeedzillaApiArticles="/articles.json"
 
 	def buildquery(self,x,i,querypart):
+		"""build query for the api call"""
 		if not x:
 			return querypart
 		key,value =x.popitem()
@@ -29,10 +30,12 @@ class FeedzillaApi(object):
 		return self.buildquery(x,i,querypart)
 
 	def knowallcategories(self):
+		"""Function to print all the categories provided by FeedzillaApi"""
 		c=CategorySubCat()
 		return c.getcategoryid()
 
 	def knowsubcategories(self,category=None):
+		"""Function to print all the subcategories provided by FeedzillaApi"""
 		c=CategorySubCat()
 		try:
 			ret=c.getcategorysubcategoryids(str.lower(category))
@@ -41,6 +44,7 @@ class FeedzillaApi(object):
 			return "Mention a Category And Use a String"
 
 	def getArticles(self,category,subcategory=None,count=None,since=None,order=None,title_only=None):
+			"""Get Articles using the API"""
 			query=""
 			if count!=None or since!=None or order!=None or title_only!=None:
 				query=self.buildquery({"count":count,"since":since,"order":order,"title_only":title_only},0,"?")
@@ -72,6 +76,7 @@ class FeedzillaApi(object):
 
 
 	def makefeedslist(self,articledictionary):
+		"""Creating a list of articles"""
 		articlelist=[]
 		for article in 	articledictionary:
 			articleitem=ArticleItem(getlistitem(article,'publish_date'),getlistitem(article,'source'),getlistitem(article,'source_url'),getlistitem(article,'summary'),getlistitem(article,'title'),getlistitem(article,'url'),getlistitem(article,'author'))
@@ -79,6 +84,7 @@ class FeedzillaApi(object):
 		return articlelist
 
 	def openurldecodesimplejson(self, url):
+		"""Function to load an API using simplejson"""
 		try:		
 			query_data = urlopen(url).read()
 			return simplejson.loads(query_data)
